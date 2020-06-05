@@ -1,30 +1,19 @@
 import { Cliente } from "./Cliente.js"
 import { ContaCorrente } from "./ContaCorrente.js"
-const cliente1 = new Cliente();
-cliente1.nome = "Aline";
-cliente1.cpf = 34679652888;
-cliente1.rg = 37277961;
-
-const cliente2 = new Cliente();
-cliente2.nome = "Jorge";
-cliente2.cpf = 15327793901;
-cliente2.rg = 1523697;
 
 
-const ContaCorrenteAline = new ContaCorrente();
-ContaCorrenteAline.agencia = 1001;
-ContaCorrenteAline.cliente = cliente1;
+const cliente1 = new Cliente("Aline", 34679652888);
+const cliente2 = new Cliente("Jorge", 15327793901);
+
+const ContaCorrenteAline = new ContaCorrente(1001, cliente1);
+
+
 ContaCorrenteAline.depositar(500);
-
-const conta2 = new ContaCorrente();
-conta2.cliente = new Cliente();
-conta2.cliente.nome = "Aline";
-conta2.cliente.cpf = 34679652888;
-conta2.agencia = 102;
+const conta2 = new ContaCorrente(102, cliente2);
 
 
 let valor = 200;
 ContaCorrenteAline.transferir(valor, conta2);
-
-console.log("valor:", valor);
-console.log(conta2);
+console.log(ContaCorrente.numeroDeContas);
+console.log(cliente2);
+console.log(cliente1);
